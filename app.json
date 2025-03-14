@@ -18,6 +18,7 @@
       }
     },
     "web": {
+      "suppressWarnings": true,
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
