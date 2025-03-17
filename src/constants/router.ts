@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 
-interface Subject {
+export interface ISubject {
   id: string;
   name: string;
   icon: keyof typeof Ionicons.glyphMap;
@@ -9,7 +9,7 @@ interface Subject {
 }
 
 // Danh sách các môn học
-export const subjects: Subject[] = [
+export const subjects: ISubject[] = [
   {
     id: 'math',
     name: 'Toán học',

@@ -1,21 +1,20 @@
 // src/navigation/AppNavigator.tsx
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack';
 import { SubjectScreen } from '../screens/SubjectScreen';
 import { HomeScreen } from '../screens/HomeScreen';
+import { IRootStackParamList } from '../interfaces/common';
 
-export type RootStackParamList = {
-  Home: undefined;
-  SubjectScreen: { id: string };
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<IRootStackParamList>();
 
 export default function AppNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeScreen}
         options={{ headerShown: false }}
       />
@@ -24,7 +23,7 @@ export default function AppNavigator() {
         component={SubjectScreen}
         options={({ route }) => {
           console.log(route);
-          return { title: `Detail ${route.params.id}` };
+          return { title: `${route.params.name}` };
         }}
       />
     </Stack.Navigator>

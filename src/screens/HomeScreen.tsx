@@ -10,10 +10,14 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { subjects } from '@/src/constants/router';
+import { IBaseStackScreenProps } from '../interfaces/common';
 // Định nghĩa kiểu dữ liệu cho môn học
 
 // Màn hình trang chủ hiển thị danh sách môn học
-export function HomeScreen({ navigation }: any) {
+export function HomeScreen({
+  navigation,
+  route,
+}: IBaseStackScreenProps<'HomeScreen'>) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -35,7 +39,7 @@ export function HomeScreen({ navigation }: any) {
                 styles.subjectCard,
                 { borderLeftColor: subject.color, width: '100%' },
               ]}
-              onPress={() => navigation.navigate('SubjectScreen', { subject })}
+              onPress={() => navigation.navigate('SubjectScreen', subject)}
               activeOpacity={0.7}
             >
               <View
